@@ -14,31 +14,37 @@
 <body>
 
     <div class="contenedor">
-        <div class="header">
-            <i class="fas fa-chart-line logo-icon"></i>
-            <h1>Calculadora de Comisiones</h1>
-            <p>Gestión de Nómina y Ventas 📈</p>
-        </div>
+    <div class="header">
+        <i class="fas fa-chart-line logo-icon"></i>
+        <h1>Calculadora de Comisiones</h1>
+        <p>Gestión de Nómina y Ventas 📈</p>
+    </div>
 
+    <!-- Envolvemos en un form para usar la validación nativa -->
+    <form id="calcForm">
         <div class="form-group">
             <label><i class="fas fa-wallet"></i> Salario Base:</label>
-            <input type="text" id="txtSueldoBase" placeholder="Ej: 500.00">
+            <input type="number" id="txtSueldoBase" min="475" max="5000" required placeholder="Entre 475 y 5000">
+            <span class="error-msg">⚠️ Caracteres no aceptados o rango inválido (475 - 5000).</span>
         </div>
 
         <div class="form-group">
             <label><i class="fas fa-shopping-cart"></i> Número de ventas:</label>
-            <input type="text" id="txtVentas" placeholder="0">
+            <input type="number" id="txtVentas" min="1" required placeholder="Mínimo 1">
+            <span class="error-msg">⚠️ Ingrese solo números mayores a 0.</span>
         </div>
 
         <div class="form-group">
             <label><i class="fas fa-tag"></i> Precio del producto:</label>
-            <input type="text" id="txtPrecio" placeholder="0.00">
+            <input type="number" id="txtPrecio" min="0.01" step="0.01" required placeholder="Mínimo 0.01">
+            <span class="error-msg">⚠️ Ingrese un precio válido mayor a 0.</span>
         </div>
 
-        <button onclick="calcular()">
+        <button type="submit" onclick="if(this.form.checkValidity()) { calcular(); return false; }">
             <span>Calcular Comisión</span>
             <i class="fas fa-chevron-right"></i>
         </button>
+    </form>
 
         <div class="resultados-box">
             <h2><i class="fas fa-file-invoice-dollar"></i> Resultados</h2>

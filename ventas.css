@@ -177,3 +177,35 @@ h2 {
         font-size: 1.3rem;
     }
 }
+/* Ocultar mensajes de error por defecto */
+.error-msg {
+    display: none;
+    color: #dc3545; /* Rojo empresarial */
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-top: 5px;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Mostrar error solo si el input es inválido */
+/* Nota: Usamos :not(:placeholder-shown) para que no sea rojo apenas cargue la página */
+input:invalid:not(:placeholder-shown) {
+    border-color: #dc3545;
+    background-color: #fff8f8;
+}
+
+input:invalid:not(:placeholder-shown) + .error-msg {
+    display: block;
+}
+
+/* Estilo para los 'spinners' de los inputs numéricos (limpieza visual) */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
