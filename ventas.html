@@ -2,32 +2,65 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Calculadora de Comisiones</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Comisiones | Portal Empresarial</title>
+    <!-- Iconos y Tipografía -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="ventas.css">
+    <script src="utilitarios.js"></script>
     <script src="ventas.js"></script>
 </head>
 <body>
 
     <div class="contenedor">
-        <h1>Calculadora de Comisiones</h1>
+        <div class="header">
+            <i class="fas fa-chart-line logo-icon"></i>
+            <h1>Calculadora de Comisiones</h1>
+            <p>Gestión de Nómina y Ventas 📈</p>
+        </div>
 
-        <label>Salario Base:</label>
-        <input type="text" id="txtSueldoBase">
+        <div class="form-group">
+            <label><i class="fas fa-wallet"></i> Salario Base:</label>
+            <input type="text" id="txtSueldoBase" placeholder="Ej: 500.00">
+        </div>
 
-        <label>Número de ventas:</label>
-        <input type="text" id="txtVentas">
+        <div class="form-group">
+            <label><i class="fas fa-shopping-cart"></i> Número de ventas:</label>
+            <input type="text" id="txtVentas" placeholder="0">
+        </div>
 
-        <label>Precio del producto:</label>
-        <input type="text" id="txtPrecio">
+        <div class="form-group">
+            <label><i class="fas fa-tag"></i> Precio del producto:</label>
+            <input type="text" id="txtPrecio" placeholder="0.00">
+        </div>
 
-        <button onclick="calcular()">Calcular Comisión</button>
+        <button onclick="calcular()">
+            <span>Calcular Comisión</span>
+            <i class="fas fa-chevron-right"></i>
+        </button>
 
-        <h2>Resultados</h2>
-        <p>Salario Base: <span id="spSueldoBase"></span></p>
-        <p>Comisión: <span id="spComision"></span></p>
-        <p>Total: <span id="spTotal"></span></p>
+        <div class="resultados-box">
+            <h2><i class="fas fa-file-invoice-dollar"></i> Resultados</h2>
+            
+            <div class="res-item">
+                <span>Salario Base:</span>
+                <span id="spSueldoBase" class="valor">—</span>
+            </div>
+            
+            <div class="res-item">
+                <span>Comisión:</span>
+                <span id="spComision" class="valor">—</span>
+            </div>
+
+            <div class="res-divider"></div>
+            
+            <div class="res-item total">
+                <span>Total a Recibir:</span>
+                <span id="spTotal" class="valor destacada">—</span>
+            </div>
+        </div>
     </div>
-
     
 </body>
 </html>
